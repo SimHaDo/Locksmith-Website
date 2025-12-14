@@ -203,12 +203,24 @@ a:hover {
   height: 40px;
   width: auto;
   display: block;
+  flex-shrink: 0;
 }
 
 .logo span {
   font-size: var(--text-lg);
   font-weight: 700;
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 32px;
+  }
+  
+  .logo span {
+    font-size: var(--text-sm);
+    margin-left: 8px;
+  }
 }
 
 .nav {
@@ -808,9 +820,14 @@ a:hover {
 
 /* Mobile Menu */
 @media (max-width: 768px) {
+  .header-inner {
+    padding: var(--space-sm) var(--container-padding);
+    min-height: 60px;
+  }
+  
   .nav {
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     right: 0;
     background: var(--color-bg);
@@ -825,7 +842,7 @@ a:hover {
     transition: all var(--transition-base);
     box-shadow: var(--shadow-lg);
     z-index: 999;
-    max-height: calc(100vh - 70px);
+    max-height: calc(100vh - 60px);
     overflow-y: auto;
   }
   
@@ -847,6 +864,12 @@ a:hover {
   
   .mobile-menu-toggle {
     display: block;
+    padding: var(--space-xs);
+  }
+  
+  .logo {
+    flex: 1;
+    min-width: 0;
   }
   
   .hero-cta {
@@ -873,10 +896,6 @@ a:hover {
   
   .footer-content {
     grid-template-columns: 1fr;
-  }
-  
-  .logo span {
-    font-size: var(--text-base);
   }
   
   .logo img {
