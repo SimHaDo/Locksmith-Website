@@ -1,0 +1,178 @@
+/* ============================================
+   ANIMATIONS & MOTION DESIGN
+   ============================================ */
+
+/* Reveal on Scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(4px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Stagger Animation */
+.reveal-stagger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-stagger.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger:nth-child(2) { transition-delay: 100ms; }
+.reveal-stagger:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger:nth-child(5) { transition-delay: 400ms; }
+.reveal-stagger:nth-child(6) { transition-delay: 500ms; }
+.reveal-stagger:nth-child(7) { transition-delay: 600ms; }
+.reveal-stagger:nth-child(8) { transition-delay: 700ms; }
+.reveal-stagger:nth-child(9) { transition-delay: 800ms; }
+.reveal-stagger:nth-child(10) { transition-delay: 900ms; }
+.reveal-stagger:nth-child(11) { transition-delay: 1000ms; }
+.reveal-stagger:nth-child(12) { transition-delay: 1100ms; }
+
+/* Parallax (subtle) */
+.parallax {
+  transition: transform 0.3s ease-out;
+}
+
+/* Fade In */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scale In */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Button Press Animation */
+.btn-press {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-press::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-press:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Card Hover Lift */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Glow Effect */
+.glow {
+  position: relative;
+}
+
+.glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  opacity: 0;
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.4);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow:hover::after {
+  opacity: 1;
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger,
+  .parallax,
+  .fade-in,
+  .scale-in {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .card-lift:hover {
+    transform: none;
+  }
+  
+  .btn-press::before {
+    display: none;
+  }
+  
+  .glow::after {
+    display: none;
+  }
+}
+
