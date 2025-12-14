@@ -1,0 +1,44 @@
+<svg width="140" height="60" viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Key (Yellow/Glowing) - Left side -->
+  <g filter="url(#glow-yellow)">
+    <!-- Key bow (circular handle) -->
+    <circle cx="15" cy="30" r="8" fill="#FFD700" opacity="0.95"/>
+    <circle cx="15" cy="30" r="5" fill="none" stroke="#FFA500" stroke-width="1.5" opacity="0.8"/>
+    <!-- Key shaft -->
+    <rect x="20" y="27" width="18" height="6" rx="3" fill="#FFD700" opacity="0.95"/>
+    <!-- Key bit (curved hook) -->
+    <path d="M 38 30 Q 42 25 45 30 Q 42 35 38 30" fill="#FFD700" opacity="0.95"/>
+  </g>
+  
+  <!-- Shield (Blue/Glowing) - Right side -->
+  <g filter="url(#glow-blue)">
+    <path d="M 95 12 Q 95 8 100 8 L 110 8 Q 115 8 115 12 L 115 20 Q 115 24 110 24 L 105 24 L 105 32 Q 105 36 100 36 L 95 36 Q 90 36 90 32 L 90 24 L 95 24 Q 95 20 95 16 Z" 
+          fill="none" 
+          stroke="#00BFFF" 
+          stroke-width="3" 
+          opacity="0.95"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Letters VH (Bold, Dark Grey) -->
+  <text x="70" y="40" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="#2C2C2C" text-anchor="middle" letter-spacing="2">VH</text>
+  
+  <!-- Glow filters -->
+  <defs>
+    <filter id="glow-yellow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
